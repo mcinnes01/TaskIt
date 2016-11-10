@@ -245,4 +245,4 @@ ModelManifest.xml
 .fake/
 
 # Settings
-src/taskit/appsettings.json
+src/TaskIt/appsettings.json
