@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4AB8DDB5-230D-49B5-BF7A-D6F96D95409F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E00DB1B4-2872-44FD-958C-B94D8CD4C7F6}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TaskIt", "src\TaskIt\TaskIt.xproj", "{5B3F2347-58F0-4BD8-BD37-5884C39299AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B3F2347-58F0-4BD8-BD37-5884C39299AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3F2347-58F0-4BD8-BD37-5884C39299AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3F2347-58F0-4BD8-BD37-5884C39299AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3F2347-58F0-4BD8-BD37-5884C39299AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B3F2347-58F0-4BD8-BD37-5884C39299AC} = {4AB8DDB5-230D-49B5-BF7A-D6F96D95409F}
+	EndGlobalSection
+EndGlobal
