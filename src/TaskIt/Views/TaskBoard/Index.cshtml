@@ -1,0 +1,46 @@
+@model IEnumerable<TaskIt.Models.TaskViewModels.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Task Board</h2>
+
+@foreach (var cat in Model)
+{
+    <div class="category-group well">
+        <div id="category-@cat.CategoryId" class="category__head" style="background-color: @cat.Colour">
+            <h2>@cat.Title</h2>
+            <span class="category__controls">
+                <a href="#" class="renderget fade-in" data-target="category-@(cat.CategoryId)" data-actionurl="@Url.Action("edit","category", new { id = cat.CategoryId } )">Edit <i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="#" class="renderget fade-in" data-target="category-@(cat.CategoryId)" data-actionurl="@Url.Action("delete","category", new { id = cat.CategoryId } )">Delete <i class="glyphicon glyphicon-trash"></i></a>
+            </span>
+        </div>
+        <div class="category__task-group">
+            @foreach (var task in cat.Tasks)
+            {
+                <div id="task-@task.TaskId" class="task panel panel-default">
+                    <div class="task__head panel-heading">
+                        <h4>@task.Title</h4><span>@task.State</span>
+                    </div>
+                    <div class="task__body panel-body">
+                        <article>
+                            @Html.Raw(task.Body)
+                        </article>
+                    </div>
+                    <div class="task__controls">
+                        <a href="#" class="renderget fade-in" data-target="task-@task.TaskId" data-actionurl="@Url.Action("edit","task", new { id = task.TaskId } )">Edit <i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="#" class="renderget fade-in" data-target="task-@task.TaskId" data-actionurl="@Url.Action("delete","task", new { id = task.TaskId } )">Delete <i class="glyphicon glyphicon-trash"></i></a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="task-add" class="category-task__controls well">
+            <a href="#" class="renderget fade-in" data-target="task-add" data-actionurl="@Url.Action("create","task")">Add <i class="glyphicon glyphicon-plus-sign"></i></a>
+        </div>
+    </div>
+}
+
+<div id="category-add" class="category__controls well">
+    <a href="#" class="renderget fade-in" data-target="category-add" data-actionurl="@Url.Action("create","category")">Add <i class="glyphicon glyphicon-plus-sign"></i></a>
+</div>

@@ -1,0 +1,75 @@
+@model TaskIt.Models.TaskViewModels.TaskViewModel
+@using TaskIt.Helpers
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <h2>Edit</h2>
+}
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+    @if (!Context.Request.IsAjaxRequest())
+    {
+        <h4>TaskViewModel</h4>
+        <hr />
+    }
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="TaskId" />
+        <div class="form-group">
+            <label asp-for="Body" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Body" class="form-control editable" />
+                <span asp-validation-for="Body" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Created" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Created" class="form-control" />
+                <span asp-validation-for="Created" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

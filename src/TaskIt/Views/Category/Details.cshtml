@@ -1,0 +1,100 @@
+@model TaskIt.Models.TaskViewModels.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <h2>Details</h2>
+}
+
+<div>
+    @if (!Context.Request.IsAjaxRequest())
+    {
+        <h4>Category</h4>
+        <hr />
+    }
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+        <dd>
+            <span>
+                @Html.DisplayFor(model => model.Colour)
+                <i class="input-group-addon colour-btn" style="background-color: @Model.Colour"></i>
+            </span>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Body
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                UserName
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tasks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TaskId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.CategoryId">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@Model.CategoryId">Delete</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+}

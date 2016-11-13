@@ -1,0 +1,56 @@
+@model TaskIt.Models.TaskViewModels.CategoryViewModel
+@using TaskIt.Helpers
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <h2>Edit</h2>
+}
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        @if (!Context.Request.IsAjaxRequest())
+        {
+            <h4>Category</h4>
+            <hr />
+        }
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CategoryId" />
+        <div class="form-group">
+            <label asp-for="Colour" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <div id="cp1" class="colorpicker-component colorpicker-element">
+                    <input asp-for="Colour" type="text" value="@Model.Colour" class="form-control colour-text">
+                    <span class="input-group-addon colour-btn"><i></i></span>
+                    <span asp-validation-for="Colour" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (!Context.Request.IsAjaxRequest())
+{
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
