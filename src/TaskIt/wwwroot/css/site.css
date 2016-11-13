@@ -48,3 +48,85 @@ textarea {
     display: none
   }
 }
+
+span.category__controls {
+    display: inline-block;
+    float: right;
+    padding: 1em;
+}
+
+.category__head {
+    padding: 1em;
+}
+
+.task__state {
+    padding: 1em;
+}
+
+span.task__state {
+    display: inline-block;
+    float: right;
+    padding: 1em;
+}
+
+.task__controls {
+    padding: 1em;
+    background: #ddd;
+}
+
+.category__head h2 {
+    display: inline;
+    clear: both;
+}
+
+.task__head h4 {
+    display: inline;
+    clear: both;
+}
+
+.task__head span {
+    float: right;
+}
+
+.category__controls {
+    padding: 1em;
+    background: #ddd;
+}
+
+.category__controls {
+    padding: 1em;
+    background: #ddd;
+}
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity: 0; /* make things invisible upon start */
+    -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation: fadeIn ease-in 1;
+    -o-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.colour-text {
+    display: inline-block;
+}
+
+.colour-btn {
+    display: inline-table;
+    line-height: 1.42857143;
+    border-radius: 4px !important;
+}
+
+.textarea { 
+}
